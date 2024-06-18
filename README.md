@@ -1,4 +1,4 @@
-# Cushion Assessment
+# Cushon Assessment
 > Stage 2 coding task for cushion
 
 ### Description
