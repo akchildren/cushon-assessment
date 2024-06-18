@@ -1,5 +1,5 @@
 # Cushon Assessment
-> Stage 2 coding task for cushion
+> Stage 2 coding task for cushon
 
 ### Description
 Cushon already offers ISAs and Pensions to Employees of Companies (Employers) who have an existing arrangement with
