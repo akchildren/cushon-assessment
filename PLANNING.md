@@ -6,25 +6,31 @@
 ### Basic Pre existing schemas (Assumption)
 - ISAs
 - Pensions
+- Isa_funds
+- Pension_funds
 - Funds
+- Companies
 - Users
+- Account_types
 - Balances
 - Transactions
-- Roles
-- Permissions
-- Companies
-- Arangements
-- Isa_funds
 
-### Current existing relationships
+### Relationships
 - Company hasMany Users
-- Company hasMany Arrangements
-- User hasMany Roles
-- Roles hasMany Permissions
-- User hasMany Pensions
-- User hasMany Isas
+- User hasOne Company
+- User hasOne account_type
 - User hasOne Balance
+- User hasMany Isas
+- User hasMany Pensions
 - Balance hasMany Transactions
+- Isa hasMany funds
+- funds belongsToMany Isas
+- Pensions hasMany funds
+- funds belongsToMany Pensions
+- User hasMany Isas
+- Balance hasMany Transactions
+- Isas hasMany Payments
+- Pension hasMany Payments
 
 ### Assumed Pre-existing Logic
 - User can have several open ISAs
@@ -65,50 +71,85 @@ Once the customer’s selection has been made, they should also be able to provi
 Given the customer has both made their selection and provided the amount the system should record these values and allow these details to be queried at a later date.
 
 - Minimum Restful endpoints required (for showcase)
-	- `[GET] /api/isa/{isa}`
+  	- `[GET] /api/user/{user}/isa`
 		- Status: `200`
 		- Body: 
 			```json
-				{
+  			[
+  				{
 					"id" : "uuid",
-					"user_id": "uuid",
-					"amount": "integer",
+  					"isa_id": "uuid",
+	  				"funds": [
+  						{
+  							"id": "uuid",
+  							"amount": "int"
+  							"currency_iso": "string"
+  						}
+  					],
+					"total": "integer",
+					"currency_iso": "string:2,3",
+					"created_at": "datetime:now",
+					"updated_at": "datetime:now"
+				}
+  			]
+			```
+	- `[GET] /api/user/{user}/isa/{isa}`
+		- Status: `200`
+		- Body: 
+			```json
+  				{
+					"id" : "uuid",
+  					"isa_id": "uuid",
+	  				"funds": [
+  						{
+  							"id": "uuid",
+  							"amount": "int"
+  							"currency_iso": "string"
+  						}
+  					],
+					"total": "integer",
 					"currency_iso": "string:2,3",
 					"created_at": "datetime:now",
 					"updated_at": "datetime:now"
 				}
 			```
-	- `[POST] /api/isa`
+	- `[POST] /api/user/{user}/isa`
 		- Status: `201`
 		- Body: 
 			```json
-				{
-					"user_id": "uuid",
-					"amount": "integer",
-					"currency_iso": "string:2,3",
-					"created_at": "datetime",
-					"updated_at": "datetime"
-				}
+			{
+				"isa_id": "uuid",
+  				"funds": [
+  					{
+  						"id": "uuid",
+  						"amount": "int"
+  						"currency_iso": "string"
+  					}
+  				]
+			}
 			```
 
 - Minimum Additional endpoints required (for MVP)
-	- `[PATCH] /api/isa/{isa}`
-	- `[DELETE] /api/isa/{isa}`
+	- `[PATCH] /api/user/{user}/isa/{isa}`
+	- `[DELETE] /api/user/{user}/isa/{isa}`
 
 
 ---------------------------------------------------------
 ## New functionality pt.5
 As a specific use case please consider a customer who wishes to deposit £25,000 into a Cushon ISA all into the Cushon Equities Fund.
 
-- `[POST] /api/isa`
+- `[POST] /api/user/{user}/isa`
 	- Status: `201`
 	- Body: 
 		```json
-			{
-				"user_id": "uuid",
-				"amount": "2500000",
-				"currency_iso": "string:2,3",
-				"created_at": "datetime",
-				"updated_at": "datetime"
-			}
+		{
+			"isa_id": "uuid",
+  			"funds": [
+  				{
+  					"id": "uuid",
+  					"amount": "int"
+  					"currency_iso": "string"
+  				}
+  			]
+		}
 		```
