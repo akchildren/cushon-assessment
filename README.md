@@ -1,6 +1,9 @@
 # Cushon Assessment
 > Stage 2 coding task for cushon
 
+### Links
+- Database Entity Relationship Diagram: https://miro.com/app/board/uXjVK6Wv5yw=/
+
 ### Description
 Cushon already offers ISAs and Pensions to Employees of Companies (Employers) who have an existing arrangement with
 Cushon.
