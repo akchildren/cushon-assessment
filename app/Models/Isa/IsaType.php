@@ -11,7 +11,6 @@ final class IsaType extends Model
     use HasFactory;
     use HasUuids;
 
-//    protected $guarded = [];
+    //    protected $guarded = [];
     protected $fillable = ['name'];
 }
-

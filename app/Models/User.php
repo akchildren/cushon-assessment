@@ -55,7 +55,6 @@ final class User extends Authenticatable
      *                  RELATIONSHIPS
      * -------------------------------------------------
      */
-
     public function company(): HasOne
     {
         return $this->hasOne(Company::class);

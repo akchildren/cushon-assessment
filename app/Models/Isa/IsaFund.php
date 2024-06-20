@@ -13,11 +13,8 @@ final class IsaFund extends Model
     use HasUuids;
     use SoftDeletes;
 
-
     /**
      * $table->integer('amount');
      * $table->string('currency_iso');
      */
-
-
 }

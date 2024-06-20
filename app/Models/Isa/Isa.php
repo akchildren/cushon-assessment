@@ -23,7 +23,6 @@ final class Isa extends Model
      *                  RELATIONSHIPS
      * -------------------------------------------------
      */
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

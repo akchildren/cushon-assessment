@@ -12,5 +12,4 @@ final class Company extends Model
     use HasFactory;
     use HasUuids;
     use SoftDeletes;
-
 }
