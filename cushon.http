@@ -1,0 +1,19 @@
+@base=http://cushon-api.test/api
+
+### Create a new isa
+POST {{base}}/user/{user}/isa
+Content-Type: application/json
+
+{
+    "isa_id": "uuid",
+    "funds": [
+        {
+            "id": "uuid",
+            "amount": "int",
+            "currency_iso": "string"
+        }
+    ]
+}
+
+### Get User Isa
+GET {{base}}/user/{user}/isa/{isa}
