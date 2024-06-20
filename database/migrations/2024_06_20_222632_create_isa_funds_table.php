@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accounts', static function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->constrained('users')->cascadeOnDelete();
-            $table->integer('maximum_amount');
+        Schema::create('isa_funds', static function (Blueprint $table) {
+            $table->uuid('id');
+            $table->foreignUuid('isa_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('fund_id')->constrained();
+            $table->integer('amount');
+            $table->string('currency_iso');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('isa_funds');
     }
 };
