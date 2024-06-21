@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use app\Models\Isa\Isa;
+use App\Models\Account\Account;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -55,13 +55,18 @@ final class User extends Authenticatable
      *                  RELATIONSHIPS
      * -------------------------------------------------
      */
-    public function company(): HasOne
+    public function company(): BelongsTo
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsTo(Company::class);
+    }
+
+    public function accounts(): HasMany
+    {
+        return $this->hasMany(Account::class);
     }
 
     public function isas(): HasMany
     {
-        return $this->hasMany(Isa::class);
+        // TODO Logic
     }
 }

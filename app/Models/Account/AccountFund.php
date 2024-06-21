@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Models\Isa;
+namespace App\Models\Account;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class IsaFund extends Model
+final class AccountFund extends Model
 {
     use HasFactory;
     use HasUuids;

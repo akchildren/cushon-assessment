@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Models\Isa;
+namespace App\Models\Account;
 
 use App\Models\Fund;
 use App\Models\User;
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-final class Isa extends Model
+final class Account extends Model
 {
     use HasFactory;
     use HasUuids;
@@ -28,15 +28,15 @@ final class Isa extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function isaType(): HasOne
+    public function accountType(): HasOne
     {
-        return $this->hasOne(IsaType::class);
+        return $this->hasOne(AccountType::class);
     }
 
     public function funds(): BelongsToMany
     {
         return $this->belongsToMany(Fund::class)
-            ->using(IsaFund::class)
+            ->using(AccountFund::class)
             ->withPivot('amount')
             ->withTimestamps();
     }
