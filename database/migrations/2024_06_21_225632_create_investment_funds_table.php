@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('isa_funds', static function (Blueprint $table) {
-            $table->uuid('id');
-            $table->foreignUuid('isa_id')->constrained()->cascadeOnDelete();
+        Schema::create('investment_funds', static function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->foreignUuid('investment_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('fund_id')->constrained();
             $table->integer('amount');
             $table->string('currency_iso');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('isa_funds');
+        Schema::dropIfExists('investment_funds');
     }
 };

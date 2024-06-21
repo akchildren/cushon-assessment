@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('account_types', static function (Blueprint $table) {
+        Schema::create('investments', static function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->unsignedInteger('maximum_amount');
+            $table->foreignUuid('account_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('account_types');
+        Schema::dropIfExists('investments');
     }
 };
