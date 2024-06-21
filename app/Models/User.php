@@ -67,6 +67,10 @@ final class User extends Authenticatable
 
     public function isas(): HasMany
     {
-        // TODO Logic
+        return $this->accounts()
+            ->whereHas(
+                'account_type',
+                fn ($query) => $query->whereName('isa')
+            );
     }
 }
