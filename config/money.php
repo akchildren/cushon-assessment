@@ -12,6 +12,6 @@ return [
     'defaultSerializer' => null,
     'isoCurrenciesPath' => __DIR__.'/../vendor/moneyphp/money/resources/currency.php',
     'currencies' => [
-        'iso' => 'all'
+        'iso' => 'all',
     ],
 ];
