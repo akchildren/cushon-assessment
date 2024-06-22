@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Investment\CreateAccountInvestmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])->group(static function () {
@@ -9,8 +10,8 @@ Route::middleware(['auth:sanctum'])->group(static function () {
      *  - Patch
      *  - Delete
      */
-    Route::prefix('/api/user/{user}/isa')->group(static function () {
-        Route::get('/');
-        Route::post('/');
+    Route::prefix('account/{account}/investment')->group(static function () {
+        Route::get('/', static fn () => 'todo');
+        Route::post('/', CreateAccountInvestmentController::class);
     });
 });
