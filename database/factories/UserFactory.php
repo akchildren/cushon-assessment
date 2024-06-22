@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Actions\Account\CreateAccountAction;
+use App\Enum\IsaType;
+use App\Models\Account\AccountType;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -53,6 +56,19 @@ class UserFactory extends Factory
 
         return $this->afterCreating(
             fn (User $user) => $user->company()->associate($company)
+        );
+    }
+
+    /**
+     * Indicate that the user has an isa account
+     */
+    public function hasIsaAccount(): static
+    {
+        return $this->afterCreating(
+            fn (User $user) => app()->make(CreateAccountAction::class)->handle(
+                $user,
+                AccountType::name(IsaType::ISA->value)->first()
+            )
         );
     }
 }
