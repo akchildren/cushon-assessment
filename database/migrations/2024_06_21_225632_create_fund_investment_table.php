@@ -8,15 +8,16 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @TODO: Consider storing currency iso at later date
      */
     public function up(): void
     {
-        Schema::create('investment_funds', static function (Blueprint $table) {
-            $table->uuid('id')->primary();
+        Schema::create('fund_investment', static function (Blueprint $table) {
             $table->foreignUuid('investment_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('fund_id')->constrained();
             $table->integer('amount');
-            $table->string('currency_iso');
+            //            $table->string('currency_iso');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('investment_funds');
+        Schema::dropIfExists('fund_investment');
     }
 };

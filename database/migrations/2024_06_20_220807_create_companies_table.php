@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             // todo: Additional fields relative to companies
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

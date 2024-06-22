@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('account_types', static function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->unsignedInteger('maximum_amount');
+            $table->string('name');
+            $table->unsignedInteger('maximum_amount')->default(env('ANNUAL_ISA_LIMIT') * 100);
             $table->timestamps();
         });
     }
