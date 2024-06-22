@@ -12,14 +12,12 @@ use App\Models\User;
  */
 final readonly class CreateAccountAction extends Action
 {
-    public function __construct() {}
-
     public function handle(
         User $user,
         AccountType $accountType,
     ): Account {
         return $user->accounts()->create([
-            'account_type_id' => $accountType,
+            'account_type_id' => $accountType->id,
         ]);
     }
 }
