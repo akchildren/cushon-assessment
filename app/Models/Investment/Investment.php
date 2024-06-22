@@ -31,7 +31,7 @@ final class Investment extends Model
     public function funds(): BelongsToMany
     {
         return $this->belongsToMany(Fund::class)
-            ->using(InvestmentFund::class)
+            ->using(FundInvestment::class)
             ->withPivot('amount')
             ->withTimestamps();
     }
