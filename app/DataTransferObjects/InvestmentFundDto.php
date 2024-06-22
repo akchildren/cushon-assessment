@@ -4,7 +4,7 @@ namespace App\DataTransferObjects;
 
 use Cknow\Money\Money;
 
-final class InvestmentFundData implements DataTransferObject
+final class InvestmentFundDto implements DataTransferObject
 {
     public function __construct(
         public string $id,
@@ -15,14 +15,14 @@ final class InvestmentFundData implements DataTransferObject
     {
         return new self(
             id: $data['id'],
-            amount: $data['amount'],
+            amount: Money::parse($data['amount']),
         );
     }
 
     public function toArray(): array
     {
         return [
-            'id' => $this->id,
+            'fund_id' => $this->id,
             'amount' => $this->amount->getAmount(),
         ];
     }
