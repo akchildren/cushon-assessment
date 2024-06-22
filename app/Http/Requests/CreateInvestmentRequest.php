@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\DataTransferObjects\InvestmentFundsDto;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,6 +29,7 @@ final class CreateInvestmentRequest extends FormRequest
                 'required',
                 'exists:funds',
             ],
+            // Rule required to ensure that amount does not put over the annual amount + what is currently in the investment
             'funds.*.amount' => [
                 'required',
                 'integer', // @note: Default is unsigned
@@ -38,5 +40,14 @@ final class CreateInvestmentRequest extends FormRequest
                 'max:3', // @note: Future improvement to introduce available list of currency isos to validate against
             ],
         ];
+    }
+
+    public function getFundsDto(): ?InvestmentFundsDto
+    {
+        if ($this->has('funds')) {
+            return InvestmentFundsDto::fromArray($this->funds);
+        }
+
+        return null;
     }
 }
