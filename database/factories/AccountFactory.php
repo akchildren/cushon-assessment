@@ -2,7 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Enum\IsaType;
 use app\Models\Account\Account;
+use App\Models\Account\AccountType;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +21,8 @@ final class AccountFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->company(),
+            'user_id' => User::factory()->create(),
+            'account_type_id' => AccountType::where('name', IsaType::ISA)->first(),
         ];
     }
 }
