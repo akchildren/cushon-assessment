@@ -7,7 +7,7 @@ use App\Models\User;
 
 final readonly class InvestmentPolicy
 {
-    public function view (User $user, Investment $investment): bool
+    public function view(User $user, Investment $investment): bool
     {
         return $user->id === $investment->account->user->id;
     }

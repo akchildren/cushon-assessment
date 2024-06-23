@@ -16,5 +16,5 @@ Route::middleware(['auth:sanctum'])->group(static function () {
         Route::post('/', CreateAccountInvestmentController::class);
     });
 
-    Route::get('investment/{investment}',GetInvestmentController::class);
+    Route::get('investment/{investment}', GetInvestmentController::class);
 });

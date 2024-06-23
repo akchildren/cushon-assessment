@@ -30,9 +30,6 @@ final class GetAccountInvestmentsTest extends TestCase
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testGetAccountInvestments(): void
     {
         Sanctum::actingAs($this->user);

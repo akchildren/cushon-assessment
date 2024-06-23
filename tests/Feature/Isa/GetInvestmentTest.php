@@ -27,16 +27,13 @@ final class GetInvestmentTest extends TestCase
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testGetCustomerInvestment(): void
     {
         Sanctum::actingAs($this->user);
 
         $this->getJson($this->getEndpoint())
             ->assertStatus(200)
-            ->assertJson(fn(AssertableJson $json) => $json
+            ->assertJson(fn (AssertableJson $json) => $json
                 ->where('data.id', $this->investment->id)
                 ->where('data.account_id', $this->user->accounts()->first()->id)
                 ->where('data.amount', Money::parse($this->investment->amount)->formatByDecimal())
