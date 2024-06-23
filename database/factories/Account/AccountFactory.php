@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Account;
 
 use App\Enum\IsaType;
 use app\Models\Account\Account;
