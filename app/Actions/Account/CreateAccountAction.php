@@ -3,8 +3,8 @@
 namespace App\Actions\Account;
 
 use App\Actions\Action;
-use app\Models\Account\Account;
-use app\Models\Account\AccountType;
+use App\Models\Account\Account;
+use App\Models\Account\AccountType;
 use App\Models\User;
 
 /**

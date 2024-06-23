@@ -5,7 +5,7 @@ namespace App\Actions\Investment;
 use App\Actions\Action;
 use App\DataTransferObjects\InvestmentFundsDto;
 use App\Exceptions\InvestmentAmountGreaterThanAnnualAllowanceException;
-use app\Models\Account\Account;
+use App\Models\Account\Account;
 use App\Models\Investment\Investment;
 use Cknow\Money\Money;
 
