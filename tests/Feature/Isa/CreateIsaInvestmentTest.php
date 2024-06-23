@@ -2,6 +2,7 @@
 
 namespace Isa;
 
+use App\Exceptions\InvestmentAmountGreaterThanAnnualAllowanceException;
 use App\Models\Fund;
 use App\Models\User;
 use Cknow\Money\Money;
@@ -31,10 +32,7 @@ final class CreateIsaInvestmentTest extends TestCase
      */
     public function testEmployeeCustomerCanCreateIsaWithSingularFund(): void
     {
-        $this->user = User::factory()
-            ->employee()
-            ->hasIsaAccount()
-            ->create();
+        $this->user = User::factory()->employee()->hasIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 
@@ -55,9 +53,7 @@ final class CreateIsaInvestmentTest extends TestCase
      */
     public function testRetailCustomerCanCreateIsaWithSingularFund(): void
     {
-        $this->user = User::factory()
-            ->hasIsaAccount()
-            ->create();
+        $this->user = User::factory()->hasIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 
@@ -86,9 +82,7 @@ final class CreateIsaInvestmentTest extends TestCase
 
     public function testIsaCannotBeCreatedWithMultipleFunds(): void
     {
-        $this->user = User::factory()
-            ->hasIsaAccount()
-            ->create();
+        $this->user = User::factory()->hasIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 
@@ -108,11 +102,22 @@ final class CreateIsaInvestmentTest extends TestCase
             ->assertJsonValidationErrors(['funds' => 'The funds field must contain 1 items.']); // Default error message for showcase purpose
     }
 
-    public function testUserCannotDepositGreaterAmountThanAnnualIsaAllowance()
+    public function testUserCannotDepositGreaterAmountThanAnnualIsaAllowance(): void
     {
-        $this->markTestSkipped('TBD');
-        $amount = 25000; // TODO: Should use env/config var to satisfy this
+        config()->set('investment.annual_allowance', 2500000);
+        $this->user = User::factory()->hasIsaAccount()->create();
 
+        Sanctum::actingAs($this->user);
+
+        $this->postJson($this->getEndpoint(), [
+            'funds' => [
+                [
+                    'id' => $this->fund->id,
+                    'amount' => config('investment.annual_allowance') + 1,
+                ],
+            ],
+        ])->assertStatus(400)
+            ->assertContent(InvestmentAmountGreaterThanAnnualAllowanceException::MESSAGE);
     }
 
     private function getEndpoint(): string
