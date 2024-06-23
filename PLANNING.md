@@ -1,43 +1,52 @@
-# Initial Breakdown
+# Overview of code assignment
 ---------------------------------------------------------
-## Existing Functionality
-> Cushon already offers ISAs and Pensions to Employees of Companies (Employers) who have an existing arrangement with Cushon.
 
-### Basic Pre existing schemas (Assumption)
-- ISAs
-- Pensions
-- Isa_funds
-- Pension_funds
-- Funds
-- Companies
-- Users
-- Account_types
-- Balances
-- Transactions
+## Approach
+- Laravel (11.x) has been used for this task as it's a framework I'm familiar with and is close to the concepts of yi + based on PHP.
+  - Additionally due to time constraints this is the fastest prototyping language available to me.
+- TDD with the given scenarios provided in the assessment. (Feature tests)
+- Follows a database layout planned out prior to starting the task
+- Task was implemented as an RESTFUL API
 
-### Relationships
-- Company hasMany Users
-- User hasOne Company
-- User hasOne account_type
-- User hasOne Balance
-- User hasMany Isas
-- User hasMany Pensions
-- Balance hasMany Transactions
-- Isa hasMany funds
-- funds belongsToMany Isas
-- Pensions hasMany funds
-- funds belongsToMany Pensions
-- User hasMany Isas
-- Balance hasMany Transactions
-- Isas hasMany Payments
-- Pension hasMany Payments
+## ORM Database Breakdown
 
-### Assumed Pre-existing Logic
-- User can have several open ISAs
-- User can have several open Pensions
-- User can have closed ISAs whilst having open ISAs
-- User can deposit monetary amount to balance via a transaction
-- User has identification has been cleared (KYC)
+### Models
+- Account
+- AccountType
+- User
+- Investment
+- Fund
+- FundInvestment
+
+### Model Relationships
+- Account BelongsTo User
+- Account BelongsTo AccountType
+- AccountType HasMany Accounts
+- Company HasMany Users
+- Funds HasMany Investments
+- Investment BelongsTo Account
+- Investment HasMany Funds
+- User BelongTo Company
+- User HasMany Accounts
+
+### Assumptions
+- Users can open isa account type
+- 
+
+## Future Improvements
+- Split accounts to company/ retail specific rather than via user type
+- Better authentication method than default sanctum package
+- Policies to consider `admins` that may need to create investments on behalf of a customer
+- Store currency used for investments as this will affect returns depending on rates
+- Improve annual allowance logic and actually track how much has been invested in the year
+- Introduce transactions and balances into the system
+  - Balances would represent available sums of money to spend as well as introducing concepts such as `pending`
+  - Transactions would audit money coming `inbound`/`outbound` from balances
+- Considerations into pensions and how those investment types would work together with ISAs
+- Ideally this would have been a feature flag but as no original codebase was provided this was not possible
+  - Moving forward introducing feature flags would be encouraged (Laravel Pendant in this instance)
+- Introduce unit tests for greater application coverage
+- Api Versioning 
 
 ---------------------------------------------------------
 ## New functionality pt.1
@@ -118,11 +127,10 @@ Given the customer has both made their selection and provided the amount the sys
 		- Body: 
 			```json
 			{
-				"isa_id": "uuid",
   				"funds": [
   					{
   						"id": "uuid",
-  						"amount": "int"
+  						"amount": "int",
   						"currency_iso": "string"
   					}
   				]
