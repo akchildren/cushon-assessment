@@ -30,10 +30,10 @@ final class InvestmentFactory extends Factory
     public function hasFunds(): static
     {
         return $this->afterCreating(
-            fn(Investment $investment) => $investment->funds()->attach(
+            fn (Investment $investment) => $investment->funds()->attach(
                 Fund::factory()->create(), [
-                'amount' => random_int(10000, config('isa.annual_allowance')) * 100
-            ])
+                    'amount' => random_int(10000, config('investment.annual_allowance')),
+                ])
         );
     }
 }
