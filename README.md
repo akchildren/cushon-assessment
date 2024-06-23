@@ -2,7 +2,7 @@
 > Stage 2 coding task for cushon
 
 ### Links
-- Database Entity Relationship Diagram: https://miro.com/app/board/uXjVK6Wv5yw=/
+- Database Entity Relationship Diagram: [Miro Link here](https://miro.com/welcomeonboard/OUlCaWhLTDJCc3J0V2FmN1FuSFZ3WVNReDVCZkI1U3lPa0tUUkkyd2d2SDlGS2tIcjRWRDhVY1RvOVRSVGQ5NnwzNDU4NzY0NTkyNjk1NzU3MjQ1fDI=?share_link_id=215768234784)
 
 ### Description
 Cushon already offers ISAs and Pensions to Employees of Companies (Employers) who have an existing arrangement with
