@@ -1,7 +1,7 @@
 @base=http://cushon-api.test/api
 
-### Create a new isa
-POST {{base}}/user/{user}/isa
+### Create a new Investment
+POST {{base}}/account/{account}/investment
 Content-Type: application/json
 
 {
@@ -9,11 +9,16 @@ Content-Type: application/json
     "funds": [
         {
             "id": "uuid",
-            "amount": "int",
-            "currency_iso": "string"
+            "amount": "int"
         }
     ]
 }
 
-### Get User Isa
-GET {{base}}/user/{user}/isa/{isa}
+### Get Account Investments
+GET {{base}}/account/{account}/investment
+Content-Type: application/json
+
+
+### Get Investment
+GET {{base}}/investment/{investment}
+Content-Type: application/json
