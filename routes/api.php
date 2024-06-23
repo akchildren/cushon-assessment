@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\Account\CreateAccountController;
 use App\Http\Controllers\Investment\AccountInvestmentsIndexController;
 use App\Http\Controllers\Investment\CreateAccountInvestmentController;
 use App\Http\Controllers\Investment\GetInvestmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])->group(static function () {
+
+    Route::post('account', CreateAccountController::class);
+
     /**
      * TODO: Out of scope of assignment
      *  - Patch
