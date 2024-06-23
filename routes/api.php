@@ -16,7 +16,5 @@ Route::middleware(['auth:sanctum'])->group(static function () {
         Route::post('/', CreateAccountInvestmentController::class);
     });
 
-    Route::prefix('investment/{investment')->group(static function () {
-        Route::get('/', GetInvestmentController::class);
-    });
+    Route::get('investment/{investment}',GetInvestmentController::class);
 });
