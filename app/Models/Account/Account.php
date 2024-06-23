@@ -33,7 +33,7 @@ final class Account extends Model
     public function amount(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->investments()?->getFundTotal()
+            get: fn () => $this->investments?->sum('amount')
         );
     }
 
