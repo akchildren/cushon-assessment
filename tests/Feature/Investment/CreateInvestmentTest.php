@@ -1,6 +1,6 @@
 <?php
 
-namespace Isa;
+namespace Investment;
 
 use App\Exceptions\InvestmentAmountGreaterThanAnnualAllowanceException;
 use App\Models\Fund;
@@ -9,10 +9,9 @@ use Cknow\Money\Money;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Illuminate\Testing\TestResponse;
 use Laravel\Sanctum\Sanctum;
-use Random\RandomException;
 use Tests\TestCase;
 
-final class CreateIsaInvestmentTest extends TestCase
+final class CreateInvestmentTest extends TestCase
 {
     private const string ENDPOINT = '/api/account/%s/investment';
 
@@ -27,10 +26,7 @@ final class CreateIsaInvestmentTest extends TestCase
         $this->fund = Fund::all()->first();
     }
 
-    /**
-     * @throws RandomException
-     */
-    public function testEmployeeCustomerCanCreateIsaWithSingularFund(): void
+    public function testEmployeeCustomerCanCreateInvestmentWithSingularFund(): void
     {
         $this->user = User::factory()->employee()->hasIsaAccount()->create();
 
@@ -48,10 +44,7 @@ final class CreateIsaInvestmentTest extends TestCase
         $this->runSuccessfulAssertions($response, $amount);
     }
 
-    /**
-     * A basic test example.
-     */
-    public function testRetailCustomerCanCreateIsaWithSingularFund(): void
+    public function testRetailCustomerCanCreateInvestmentWithSingularFund(): void
     {
         $this->user = User::factory()->hasIsaAccount()->create();
 

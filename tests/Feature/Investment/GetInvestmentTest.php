@@ -1,6 +1,6 @@
 <?php
 
-namespace Isa;
+namespace Investment;
 
 use App\Models\Investment\Investment;
 use App\Models\User;
