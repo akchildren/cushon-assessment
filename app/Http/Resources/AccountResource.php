@@ -19,7 +19,8 @@ final class AccountResource extends JsonResource
     {
         return [
             'id' => (string) $this->id,
-            'account_type' => $this->account_type?->name,
+            'user_id' => (string) $this->user_id,
+            'account_type' => (string) $this->accountType?->name,
             'investments' => InvestmentResource::collection($this->investments),
             //            'amount' => $this->amount ? Money::parse($this->amount)->format() : null,
             'created_at' => (string) $this->created_at->toDateTimeString(),
