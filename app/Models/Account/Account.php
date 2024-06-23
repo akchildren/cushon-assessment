@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -47,9 +46,9 @@ final class Account extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function accountType(): HasOne
+    public function accountType(): BelongsTo
     {
-        return $this->hasOne(AccountType::class);
+        return $this->belongsTo(AccountType::class);
     }
 
     public function investments(): HasMany
