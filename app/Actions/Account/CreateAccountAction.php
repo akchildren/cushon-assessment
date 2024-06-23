@@ -10,7 +10,7 @@ use App\Models\User;
 /**
  * Basic action to create account
  */
-final readonly class CreateAccountAction extends Action
+abstract readonly class CreateAccountAction extends Action
 {
     public function handle(
         User $user,
