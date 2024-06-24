@@ -29,9 +29,18 @@
 - User BelongTo Company
 - User HasMany Accounts
 
-### Assumptions
-- Users can open isa account type
-- 
+### Assumptions for tasks
+- Users can open account of any available type.
+  - The new addition will allow both retial or employee customers these privledges.
+- Accounts will be built up of multiple investments but capped at the annual allowance amount (`20,000.00` for this demo).
+- Investment commands/actions will be built around allowing multiple funds to be attached but at a request level **only one fund** will be allowed.
+- No concept of admin routes will exist and this will strictly be acting as a user authorised into the system.
+- As the scenarios are based around individual saving accounts, pensions will not be put into scope of the assessment.
+- The following MVP api endpoints are required for this assessment:
+  - `GET account/{account}/investment`
+  - `GET investment/{investment}`
+  - `POST user/{user}/account`
+  - `POST account/{account}/investment`
 
 ## Future Improvements
 - Split accounts to company/ retail specific rather than via user type
