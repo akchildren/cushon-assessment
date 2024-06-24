@@ -35,18 +35,25 @@
 
 ## Future Improvements
 - Split accounts to company/ retail specific rather than via user type
-- Better authentication method than default sanctum package
-- Policies to consider `admins` that may need to create investments on behalf of a customer
-- Store currency used for investments as this will affect returns depending on rates
-- Improve annual allowance logic and actually track how much has been invested in the year
+- Inherit a better authentication method ratherr than the default sanctum package
+- Policies to consider the possiblity of `super_users` that may need to CRUD investments on *behalf* of a customer
+- Store currency iso used for investments as this will affect returns depending on rates and countries invested from
+- Implement annual allowance logic and actually track how much has been invested in the year
+  - Currently this is using a config varriable as proof of concept
 - Introduce transactions and balances into the system
-  - Balances would represent available sums of money to spend as well as introducing concepts such as `pending`
+  - Balances would represent available sums of money to spend as well as introducing amount concepts such as `pending`, `available`
   - Transactions would audit money coming `inbound`/`outbound` from balances
-- Considerations into pensions and how those investment types would work together with ISAs
-- Ideally this would have been a feature flag but as no original codebase was provided this was not possible
-  - Moving forward introducing feature flags would be encouraged (Laravel Pendant in this instance)
-- Introduce unit tests for greater application coverage
-- Api Versioning 
+    - Transactions would introduce `state factory` pattern to keep audit of transitional history/progress
+- More consideration into pensions and how those investment types would work together with ISAs
+- Ideally this would have been introduced into the repository via a `feature flag` but as no original codebase was provided this was not possible
+  - Moving forward introducing feature flags would be encouraged ("Laravel Pendant" for Laravel)
+- Introduce `unit tests` for greater application coverage
+  - Actions
+  - Builder
+  - DTOs
+  - etc..
+- Api Versioning (v1/v2 etc)
+- Use of a `builder` pattern for creating/updating models
 
 ---------------------------------------------------------
 ## New functionality pt.1
