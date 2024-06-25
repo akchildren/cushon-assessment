@@ -6,7 +6,7 @@
 - Laravel (11.x) & PHP (8.3) has been used for this task
 - Feature tests created with the given scenarios provided in the assessment.
 - Follows a database layout planned out prior to starting implementation
-- Task to be completed from a backend approach, providing a RESTFUL API
+- RESTFUL API 
 
 ## Assumptions for this assignment
 - Users can open account of any available type.
