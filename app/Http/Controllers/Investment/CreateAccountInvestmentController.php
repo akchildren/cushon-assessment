@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 final class CreateAccountInvestmentController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     */
     public function __invoke(
         Account $account,
         CreateInvestmentRequest $request,

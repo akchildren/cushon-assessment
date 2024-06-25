@@ -27,7 +27,7 @@ final class Account extends Model
     ];
 
     /**
-     * @note: For MVP, I have excluded any logic surrounding interested accrued on ISA, this will just return the investments totals
+     * @todo: Future improvement: Introduce method to return interest accrued on ISA
      */
     public function amount(): Attribute
     {
@@ -36,11 +36,6 @@ final class Account extends Model
         );
     }
 
-    /**
-     * -------------------------------------------------
-     *                  RELATIONSHIPS
-     * -------------------------------------------------
-     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

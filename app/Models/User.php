@@ -19,8 +19,6 @@ final class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
      * @var array<int, string>
      */
     protected $fillable = [
@@ -30,8 +28,6 @@ final class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
      * @var array<int, string>
      */
     protected $hidden = [
@@ -40,8 +36,6 @@ final class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
      * @return array<string, string>
      */
     protected function casts(): array
@@ -52,11 +46,6 @@ final class User extends Authenticatable
         ];
     }
 
-    /**
-     * -------------------------------------------------
-     *                  RELATIONSHIPS
-     * -------------------------------------------------
-     */
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class);
@@ -67,6 +56,9 @@ final class User extends Authenticatable
         return $this->hasMany(Account::class);
     }
 
+    /**
+     * @note: Unused in project scope but can be used in future to reference all accounts of type ISA
+     */
     public function isas(): HasMany
     {
         return $this->accounts()
