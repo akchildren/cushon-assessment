@@ -3,9 +3,7 @@
 
 ## Technical Choices
 
-- Laravel (11.x) has been used for this task as it's a framework I'm familiar with and is close to the concepts of yi +
-  based on PHP.
-    - Additionally due to time constraints this is the fastest prototyping language available to me.
+- Laravel (11.x) & PHP (8.3) has been used for this task
 - Feature tests created with the given scenarios provided in the assessment.
 - Follows a database layout planned out prior to starting implementation
 - Task to be completed from a backend approach, providing a RESTFUL API
@@ -22,32 +20,11 @@
 - These actions will be performed as an authenticated user (customer) and endpoints will be designed towards this.
 - An investment would require a form of payment gateway to accept payment however in this task, it will assume payment has been made successfully.
 
-## ORM Database Breakdown
+## Database (ERD)
 https://miro.com/app/board/uXjVK6Wv5yw=/
 ![Pasted image 20240625224806](https://github.com/akchildren/cushon-assessment/assets/31509717/8ac82ad3-1477-48fb-8e49-c46b5d1b2d40)
 
-### Models
-
-- Account
-- AccountType
-- User
-- Investment
-- Fund
-- FundInvestment
-
-### Model Relationships
-
-- Account BelongsTo User
-- Account BelongsTo AccountType
-- AccountType HasMany Accounts
-- Company HasMany Users
-- Funds HasMany Investments
-- Investment BelongsTo Account
-- Investment HasMany Funds
-- User BelongTo Company
-- User HasMany Accounts
-
-## Assignment Endpoints
+## HTTP Endpoints
 https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
 
 ## Future Improvements
