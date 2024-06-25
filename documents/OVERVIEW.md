@@ -13,6 +13,7 @@
     - The new addition will allow both retail or employee customers these privileges.
 - ISA Accounts will be built up of multiple investments but capped at the annual allowance amount (`20,000.00` for this
   demo).
+    - This should also take into consideration previous investment amounts put into the users account
 - Investment commands/actions will be built around allowing multiple funds to be attached in the future but at a request validation level, **only
   one fund** will be allowed.
 - No concept of admin routes will exist and this will strictly be acting as a user authorised into the system.
