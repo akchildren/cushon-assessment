@@ -45,7 +45,7 @@
 - As the scenarios are based around individual saving accounts, pensions will not be put into scope of the assessment.
 
 ### Assignment Endpoints
-...
+https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
 
 ## Future Improvements
 
