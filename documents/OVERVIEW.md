@@ -50,8 +50,11 @@ https://miro.com/app/board/uXjVK6Wv5yw=/
 https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
 
 ## Future Improvements
-
-- Split accounts to company/ retail specific rather than via user type
+- Introduce `unit tests` (TDD) for broader application coverage
+    - Actions
+    - Builder
+    - DTOs
+    - etc..
 - Inherit a better authentication method rather than the default sanctum package
 - Policies to consider the possibility of `super_users` that may need to CRUD investments on *behalf* of a customer
 - Store currency iso used for investments as this will affect returns depending on rates and countries invested from
@@ -66,10 +69,5 @@ https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
 - Ideally this would have been introduced into the repository via a `feature flag` but as no original codebase was
   provided this was not possible
     - Moving forward introducing feature flags would be encouraged ("Laravel Pendant" for Laravel)
-- Introduce `unit tests` for greater application coverage
-    - Actions
-    - Builder
-    - DTOs
-    - etc..
-- Api Versioning (v1/v2 etc)
+- Api Versioning (`v1`/`v2` etc)
 - Use of a `builder` pattern for creating/updating models
