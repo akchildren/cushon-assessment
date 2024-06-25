@@ -11,6 +11,8 @@
 - Task was implemented as an RESTFUL API
 
 ## ORM Database Breakdown
+https://miro.com/app/board/uXjVK6Wv5yw=/
+![Pasted image 20240625224806](https://github.com/akchildren/cushon-assessment/assets/31509717/8ac82ad3-1477-48fb-8e49-c46b5d1b2d40)
 
 ### Models
 
@@ -33,7 +35,7 @@
 - User BelongTo Company
 - User HasMany Accounts
 
-### Assumptions for tasks
+## Assumptions for tasks
 
 - Users can open account of any available type.
     - The new addition will allow both retail or employee customers these privileges.
@@ -44,7 +46,7 @@
 - No concept of admin routes will exist and this will strictly be acting as a user authorised into the system.
 - As the scenarios are based around individual saving accounts, pensions will not be put into scope of the assessment.
 
-### Assignment Endpoints
+## Assignment Endpoints
 https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
 
 ## Future Improvements
