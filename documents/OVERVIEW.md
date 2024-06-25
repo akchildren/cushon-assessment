@@ -1,14 +1,26 @@
 # Overview of code assignment
 ---------------------------------------------------------
 
-## Approach
+## Technical Choices
 
 - Laravel (11.x) has been used for this task as it's a framework I'm familiar with and is close to the concepts of yi +
   based on PHP.
     - Additionally due to time constraints this is the fastest prototyping language available to me.
-- TDD with the given scenarios provided in the assessment. (Feature tests)
-- Follows a database layout planned out prior to starting the task
-- Task was implemented as an RESTFUL API
+- Feature tests created with the given scenarios provided in the assessment.
+- Follows a database layout planned out prior to starting implementation
+- Task to be completed from a backend approach, providing a RESTFUL API
+
+## Assumptions for this assignment
+- Users can open account of any available type.
+    - The new addition will allow both retail or employee customers these privileges.
+- ISA Accounts will be built up of multiple investments but capped at the annual allowance amount (`20,000.00` for this
+  demo).
+- Investment commands/actions will be built around allowing multiple funds to be attached in the future but at a request validation level, **only
+  one fund** will be allowed.
+- No concept of admin routes will exist and this will strictly be acting as a user authorised into the system.
+- As the scenarios are based around individual saving accounts, pensions will not be put into scope of the assessment.
+- These actions will be performed as an authenticated user (customer) and endpoints will be designed towards this.
+- An investment would require a form of payment gateway to accept payment however in this task, it will assume payment has been made successfully.
 
 ## ORM Database Breakdown
 https://miro.com/app/board/uXjVK6Wv5yw=/
@@ -34,17 +46,6 @@ https://miro.com/app/board/uXjVK6Wv5yw=/
 - Investment HasMany Funds
 - User BelongTo Company
 - User HasMany Accounts
-
-## Assumptions for tasks
-
-- Users can open account of any available type.
-    - The new addition will allow both retail or employee customers these privileges.
-- Accounts will be built up of multiple investments but capped at the annual allowance amount (`20,000.00` for this
-  demo).
-- Investment commands/actions will be built around allowing multiple funds to be attached but at a request level **only
-  one fund** will be allowed.
-- No concept of admin routes will exist and this will strictly be acting as a user authorised into the system.
-- As the scenarios are based around individual saving accounts, pensions will not be put into scope of the assessment.
 
 ## Assignment Endpoints
 https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
