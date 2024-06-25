@@ -50,3 +50,4 @@ https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
     - Moving forward introducing feature flags would be encouraged ("Laravel Pendant" for Laravel)
 - Api Versioning (`v1`/`v2` etc)
 - Use of a `builder` pattern for creating/updating models
+- Remove use of using magic properties from models
