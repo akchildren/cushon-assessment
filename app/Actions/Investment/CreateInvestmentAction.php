@@ -29,6 +29,14 @@ abstract readonly class CreateInvestmentAction extends Action
         return $investment->refresh();
     }
 
+    /**
+     * @todo: Future improvement to consider all of the users investment accounts as the annual limit is to the person not the individual account
+     *
+     * @param Account $account
+     * @param InvestmentFundsDto $investmentFundsDto
+     * @return void
+     * @throws InvestmentAmountGreaterThanAnnualAllowanceException
+     */
     public function validateAmountLessThanAnnualAllowance(
         Account $account,
         InvestmentFundsDto $investmentFundsDto
