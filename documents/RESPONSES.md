@@ -6,6 +6,9 @@
 
  > **Status:** `200`
 
+#### Test File
+https://github.com/akchildren/cushon-assessment/blob/main/tests/Feature/Investment/GetInvestmentTest.php
+
 #### Body Response Example
 ```json
 {
@@ -29,6 +32,9 @@
 
 ### `GET /account/{account}/investment`
  > **Status:** `200`
+
+#### Test File
+https://github.com/akchildren/cushon-assessment/blob/main/tests/Feature/Investment/GetAccountInvestmentsTest.php
 
 #### Body Response Example
 ```json
@@ -70,6 +76,9 @@
 ### `POST user/{user}/account`
   > **Status:** `201`
 
+#### Test File
+https://github.com/akchildren/cushon-assessment/blob/main/tests/Feature/Account/CreateAccountTest.php
+
 #### Request Body:
 ```json
 {
@@ -91,6 +100,9 @@
 ------------------------------------------------------------------------
 ### `POST account/{account}/investment`
   > **Status:** `201`
+
+#### Test File
+https://github.com/akchildren/cushon-assessment/blob/main/tests/Feature/Investment/CreateInvestmentTest.php
 
 #### Request Body:
 ```json
