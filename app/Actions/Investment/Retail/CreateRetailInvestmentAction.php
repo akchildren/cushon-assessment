@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions\Investment;
+namespace App\Actions\Investment\Retail;
 
-use App\Actions\Action;
+use App\Actions\Investment\CreateInvestmentAction;
 
 /**
  * Basic action to create retail investment

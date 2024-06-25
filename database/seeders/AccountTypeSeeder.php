@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Enum\IsaType;
+use App\Enum\Isa\IsaType;
 use App\Models\Account\AccountType;
 use Illuminate\Database\Seeder;
 

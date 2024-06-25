@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Actions\Account\CreateAccountAction;
-use App\Enum\IsaType;
+use App\Actions\Account\Employee\CreateEmployeeAccountAction;
+use App\Actions\Account\Retail\CreateRetailAccountAction;
+use App\Enum\Isa\IsaType;
 use App\Models\Account\AccountType;
 use App\Models\Company;
 use App\Models\User;
@@ -62,10 +63,23 @@ class UserFactory extends Factory
     /**
      * Indicate that the user has an isa account
      */
-    public function hasIsaAccount(): static
+    public function hasEmployeeIsaAccount(): static
     {
         return $this->afterCreating(
-            fn (User $user) => app()->make(CreateAccountAction::class)->handle(
+            fn (User $user) => app()->make(CreateEmployeeAccountAction::class)->handle(
+                $user,
+                AccountType::name(IsaType::ISA->value)->first()
+            )
+        );
+    }
+
+    /**
+     * Indicate that the user has an isa account
+     */
+    public function hasRetailIsaAccount(): static
+    {
+        return $this->afterCreating(
+            fn (User $user) => app()->make(CreateRetailAccountAction::class)->handle(
                 $user,
                 AccountType::name(IsaType::ISA->value)->first()
             )

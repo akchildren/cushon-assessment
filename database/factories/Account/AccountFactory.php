@@ -2,7 +2,7 @@
 
 namespace Database\Factories\Account;
 
-use App\Enum\IsaType;
+use App\Enum\Isa\IsaType;
 use app\Models\Account\Account;
 use App\Models\Account\AccountType;
 use App\Models\User;

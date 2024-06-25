@@ -1,7 +1,8 @@
 <?php
 
-namespace App\DataTransferObjects;
+namespace App\DataTransferObjects\AccountType;
 
+use App\DataTransferObjects\DataTransferObject;
 use App\Models\Account\AccountType;
 
 final class AccountTypeDto implements DataTransferObject

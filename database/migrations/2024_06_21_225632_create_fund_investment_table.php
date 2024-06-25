@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignUuid('investment_id')->constrained()->cascadeOnDelete();
             $table->foreignUuid('fund_id')->constrained();
             $table->integer('amount');
-            //            $table->string('currency_iso');
             $table->timestamps();
             $table->softDeletes();
         });

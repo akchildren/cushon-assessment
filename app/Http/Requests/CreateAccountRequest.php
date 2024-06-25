@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\DataTransferObjects\AccountTypeDto;
+use App\DataTransferObjects\AccountType\AccountTypeDto;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 

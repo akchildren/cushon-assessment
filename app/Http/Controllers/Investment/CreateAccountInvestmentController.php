@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Investment;
 
-use App\Actions\Investment\CreateEmployeeInvestmentAction;
-use App\Actions\Investment\CreateRetailInvestmentAction;
+use App\Actions\Investment\Employee\CreateEmployeeInvestmentAction;
+use App\Actions\Investment\Retail\CreateRetailInvestmentAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateInvestmentRequest;
 use App\Http\Resources\InvestmentResource;

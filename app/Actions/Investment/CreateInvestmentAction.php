@@ -3,8 +3,8 @@
 namespace App\Actions\Investment;
 
 use App\Actions\Action;
-use App\DataTransferObjects\InvestmentFundsDto;
-use App\Exceptions\InvestmentAmountGreaterThanAnnualAllowanceException;
+use App\DataTransferObjects\InvestmentFund\InvestmentFundsDto;
+use App\Exceptions\Investment\InvestmentAmountGreaterThanAnnualAllowanceException;
 use App\Models\Account\Account;
 use App\Models\Investment\Investment;
 use Cknow\Money\Money;
@@ -14,8 +14,6 @@ use Cknow\Money\Money;
  */
 abstract readonly class CreateInvestmentAction extends Action
 {
-    public function __construct() {}
-
     /**
      * @throws InvestmentAmountGreaterThanAnnualAllowanceException
      */
@@ -26,12 +24,7 @@ abstract readonly class CreateInvestmentAction extends Action
         $this->validateAmountLessThanAnnualAllowance($account, $investmentFundsDto);
 
         $investment = $account->investments()->create();
-
-        foreach ($investmentFundsDto->toArray() as $fund) {
-            $investment
-                ->funds()
-                ->attach($fund->id, ['amount' => $fund->amount]);
-        }
+        $this->attachInvestmentFunds($investment, $investmentFundsDto);
 
         return $investment->refresh();
     }
@@ -49,6 +42,17 @@ abstract readonly class CreateInvestmentAction extends Action
         // @TODO: Future improvement would be to store the annual amount spent and compare it yearly, just using static value for showcase
         if ($total->getAmount() > config('investment.annual_allowance')) {
             throw new InvestmentAmountGreaterThanAnnualAllowanceException();
+        }
+    }
+
+    private function attachInvestmentFunds(
+        Investment $investment,
+        InvestmentFundsDto $investmentFundsDto
+    ): void {
+        foreach ($investmentFundsDto->toArray() as $fund) {
+            $investment
+                ->funds()
+                ->attach($fund->id, ['amount' => $fund->amount]);
         }
     }
 }

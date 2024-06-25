@@ -1,6 +1,8 @@
 <?php
 
-namespace App\DataTransferObjects;
+namespace App\DataTransferObjects\InvestmentFund;
+
+use App\DataTransferObjects\DataTransferObject;
 
 final class InvestmentFundsDto implements DataTransferObject
 {

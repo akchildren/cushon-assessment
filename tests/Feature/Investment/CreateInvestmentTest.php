@@ -2,7 +2,7 @@
 
 namespace Investment;
 
-use App\Exceptions\InvestmentAmountGreaterThanAnnualAllowanceException;
+use App\Exceptions\Investment\InvestmentAmountGreaterThanAnnualAllowanceException;
 use App\Models\Fund;
 use App\Models\User;
 use Cknow\Money\Money;
@@ -28,7 +28,7 @@ final class CreateInvestmentTest extends TestCase
 
     public function testEmployeeCustomerCanCreateInvestmentWithSingularFund(): void
     {
-        $this->user = User::factory()->employee()->hasIsaAccount()->create();
+        $this->user = User::factory()->employee()->hasEmployeeIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 
@@ -46,7 +46,7 @@ final class CreateInvestmentTest extends TestCase
 
     public function testRetailCustomerCanCreateInvestmentWithSingularFund(): void
     {
-        $this->user = User::factory()->hasIsaAccount()->create();
+        $this->user = User::factory()->hasRetailIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 
@@ -75,7 +75,7 @@ final class CreateInvestmentTest extends TestCase
 
     public function testIsaCannotBeCreatedWithMultipleFunds(): void
     {
-        $this->user = User::factory()->hasIsaAccount()->create();
+        $this->user = User::factory()->hasRetailIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 
@@ -98,7 +98,7 @@ final class CreateInvestmentTest extends TestCase
     public function testUserCannotDepositGreaterAmountThanAnnualIsaAllowance(): void
     {
         config()->set('investment.annual_allowance', 2500000);
-        $this->user = User::factory()->hasIsaAccount()->create();
+        $this->user = User::factory()->hasRetailIsaAccount()->create();
 
         Sanctum::actingAs($this->user);
 

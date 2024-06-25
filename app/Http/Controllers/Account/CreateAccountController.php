@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Actions\Account\CreateEmployeeAccountAction;
-use App\Actions\Account\CreateRetailAccountAction;
+use App\Actions\Account\Employee\CreateEmployeeAccountAction;
+use App\Actions\Account\Retail\CreateRetailAccountAction;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateAccountRequest;
 use App\Http\Resources\AccountResource;

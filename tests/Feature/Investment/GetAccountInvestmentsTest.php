@@ -22,7 +22,7 @@ final class GetAccountInvestmentsTest extends TestCase
 
         $this->seed();
 
-        $this->user = User::factory()->hasIsaAccount()->create();
+        $this->user = User::factory()->hasRetailIsaAccount()->create();
         $this->account = $this->user->accounts()->first();
 
         Investment::factory(2)->hasFunds()->create([
