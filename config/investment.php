@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'annual_allowance' => 2500000, // 25000.00
+    'annual_allowance' => 2000000, // Up to £20,000 per tax year (2024/2025)
 ];
