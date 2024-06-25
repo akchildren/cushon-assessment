@@ -2,9 +2,9 @@
 > Stage 2 coding task for cushon
 
 ### Links
-- Overview: [MD Link Here](https://github.com/akchildren/cushon-assessment/blob/main/documents/OVERVIEW.md)
-- HTTP Response Examples: [MD Link Here]([https://github.com/akchildren/cushon-assessment/blob/main/documents/OVERVIEW.md](https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md))
-- Local Development: [MD Link Here]([https://github.com/akchildren/cushon-assessment/blob/main/documents/OVERVIEW.md](https://github.com/akchildren/cushon-assessment/blob/main/documents/RUNNING_LOCALLY.md))
+- Overview: [Link Here](https://github.com/akchildren/cushon-assessment/blob/main/documents/OVERVIEW.md)
+- HTTP Response Examples: [Link Here](https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md)
+- Local Development: [Link Here](https://github.com/akchildren/cushon-assessment/blob/main/documents/RUNNING_LOCALLY.md)
 - Database Entity Relationship Diagram: [Miro Link here](https://miro.com/welcomeonboard/OUlCaWhLTDJCc3J0V2FmN1FuSFZ3WVNReDVCZkI1U3lPa0tUUkkyd2d2SDlGS2tIcjRWRDhVY1RvOVRSVGQ5NnwzNDU4NzY0NTkyNjk1NzU3MjQ1fDI=?share_link_id=215768234784)
 
 ### Description
