@@ -3,7 +3,7 @@
 ---------------------------------------------------------
 
 ## Setup Local Environment (Step 1)
-- Then either use laravel herd or sail to start the local environment
+> Use laravel herd or sail to start the local environment
 
 ### Laravel HERD + DB Engin
 - https://herd.laravel.com/ - PHP environment
