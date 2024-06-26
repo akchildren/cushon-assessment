@@ -8,7 +8,7 @@
 - Follows a database layout planned out prior to starting implementation
 - RESTFUL API 
 
-## Assumptions for this assignment
+## Assignment Descissions
 - Users can open account of any available type.
     - The new addition will allow both retail or employee customers these privileges.
 - ISA Accounts will be built up of multiple investments but capped at the annual allowance amount (`20,000.00` for this
@@ -16,6 +16,7 @@
     - This should also take into consideration previous investment amounts put into the users account
 - Investment commands/actions will be built around allowing multiple funds to be attached in the future but at a request validation level, **only
   one fund** will be allowed.
+  - Specification states one fund should be allowed at point of request. So assumption is that multiple account investments could be from different funds for the same account
 - No concept of admin routes will exist and this will strictly be acting as a user authorised into the system.
 - As the scenarios are based around individual saving accounts, pensions will not be put into scope of the assessment.
 - These actions will be performed as an authenticated user (customer) and endpoints will be designed towards this.
