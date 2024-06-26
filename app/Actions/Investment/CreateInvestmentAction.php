@@ -23,7 +23,7 @@ abstract readonly class CreateInvestmentAction extends Action
     ): Investment {
         $this->validateAmountLessThanAnnualAllowance($account, $investmentFundsDto);
 
-        $investment = $account->investments()->create();
+        $investment = $this->createAccountInvestment($account);
         $this->attachInvestmentFunds($investment, $investmentFundsDto);
 
         return $investment->refresh();
@@ -51,6 +51,12 @@ abstract readonly class CreateInvestmentAction extends Action
         if ($total->getAmount() > config('investment.annual_allowance')) {
             throw new InvestmentAmountGreaterThanAnnualAllowanceException();
         }
+    }
+
+    private function createAccountInvestment(
+        Account $account
+    ): Investment {
+        return $account->investments()->create();
     }
 
     private function attachInvestmentFunds(
