@@ -3,11 +3,6 @@
 ---------------------------------------------------------
 
 ## Setup Local Environment (Step 1)
-
-- Set a sail alias
-```shell
-alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
-````
 - Then either use laravel herd or sail to start the local environment
 
 ### Laravel HERD + DB Engin
@@ -26,10 +21,10 @@ docker run --rm \
 ```
 - Run Sail (Detached)
 ```shell
-sail up -d
+./sail up -d
 ```
 ---------------------------------------------------------
 ## Running PHPUnit Tests (Step 2)
 ```shell
-sail test
+./sail test
 ```
