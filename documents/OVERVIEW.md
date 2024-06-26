@@ -13,7 +13,7 @@
     - The new addition will allow both retail or employee customers these privileges.
 - ISA Accounts will be built up of multiple investments but capped at the annual allowance amount (`20,000.00` for this
   demo).
-    - This should also take into consideration previous investment amounts put into the users account
+    - This should also take into consideration previous investment amounts put into the users accounts
 - Investment commands/actions will be built around allowing multiple funds to be attached in the future but at a request validation level, **only
   one fund** will be allowed.
   - Specification states one fund should be allowed at point of request. So assumption is that multiple account investments could be from different funds for the same account
@@ -24,7 +24,6 @@
 
 ## Database (ERD)
 https://miro.com/app/board/uXjVK6Wv5yw=/
-![Pasted image 20240625224806](https://github.com/akchildren/cushon-assessment/assets/31509717/8ac82ad3-1477-48fb-8e49-c46b5d1b2d40)
 
 ## HTTP Endpoints
 https://github.com/akchildren/cushon-assessment/blob/main/documents/RESPONSES.md
